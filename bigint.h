@@ -94,18 +94,6 @@ class bigint {
             str = n.str;
         }
 
-        // operator overloading for output stream {<<}
-        friend std::ostream &operator << (std::ostream& stream, const bigint &n) {
-            stream << n.str;
-            return stream;
-        }
-
-        // operator overloading for input stream {>>}
-        friend std::istream &operator >> (std::istream& stream, bigint &n) {
-            stream >> n.str;
-            return stream;
-        }
-
         /* Operator {+} Overloadings, for different kind of 
         parameter for the programmer's convinience  */
 
@@ -114,36 +102,6 @@ class bigint {
             ans.str = add(str, n.str);
             return ans;
         }        
-        friend bigint operator + (bigint const &n1, int n2) {
-            bigint ans;
-            ans.str = add(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator + (int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = add(n2.str, std::to_string(n1));
-            return ans;
-        }
-        friend bigint operator + (bigint const &n1, long int n2) {
-            bigint ans;
-            ans.str = add(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator + (long int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = add(n2.str, std::to_string(n1));
-            return ans;
-        }
-        friend bigint operator + (bigint const &n1, long long int n2) {
-            bigint ans;
-            ans.str = add(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator + (long long int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = add(n2.str, std::to_string(n1));
-            return ans;
-        }
 
         // Extra shortcut feature
 
@@ -209,36 +167,7 @@ class bigint {
             ans.str = multiply(str, n.str);
             return ans;
         }
-        friend bigint operator * (bigint const &n1, int n2) {
-            bigint ans;
-            ans.str = multiply(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator * (int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = multiply(std::to_string(n1), n2.str);
-            return ans;
-        }
-        friend bigint operator * (bigint const &n1, long int n2) {
-            bigint ans;
-            ans.str = multiply(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator * (long int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = multiply(std::to_string(n1), n2.str);
-            return ans;
-        }
-        friend bigint operator * (bigint const &n1, long long int n2) {
-            bigint ans;
-            ans.str = multiply(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator * (long long int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = multiply(std::to_string(n1), n2.str);
-            return ans;
-        }
+
         // Extra shortcut feature
 
         bigint& operator *= (bigint const n) {
@@ -254,36 +183,7 @@ class bigint {
             ans.str = divide(str, n.str);
             return ans;
         }
-        friend bigint operator / (bigint const &n1, int n2) {
-            bigint ans;
-            ans.str = divide(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator / (int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = divide(std::to_string(n1), n2.str);
-            return ans;
-        }
-        friend bigint operator / (bigint const &n1, long int n2) {
-            bigint ans;
-            ans.str = divide(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator / (long int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = divide(std::to_string(n1), n2.str);
-            return ans;
-        }
-        friend bigint operator / (bigint const &n1, long long int n2) {
-            bigint ans;
-            ans.str = divide(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator / (long long int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = divide(std::to_string(n1), n2.str);
-            return ans;
-        }
+
 
         // Extra shortcut feature
 
@@ -300,37 +200,7 @@ class bigint {
             ans.str = mod(str, n.str);
             return ans;
         }
-        friend bigint operator % (bigint const &n1, int n2) {
-            bigint ans;
-            ans.str = mod(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator % (int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = mod(std::to_string(n1), n2.str);
-            return ans;
-        }
-        friend bigint operator % (bigint const &n1, long int n2) {
-            bigint ans;
-            ans.str = mod(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator % (long int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = mod(std::to_string(n1), n2.str);
-            return ans;
-        }
-        friend bigint operator % (bigint const &n1, long long int n2) {
-            bigint ans;
-            ans.str = mod(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator % (long long int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = mod(std::to_string(n1), n2.str);
-            return ans;
-        }
-        
+
         // Extra shortcut feature
         
         bigint& operator %= (bigint const n) {
@@ -379,48 +249,12 @@ class bigint {
         bool operator > (bigint const &n) {
             return is_strictlyMaximum(str, n.str);
         }
-        friend bool operator > (bigint const &n1, int n2) {
-            return is_strictlyMaximum(n1.str, std::to_string(n2));
-        }
-        friend bool operator > (int n1, bigint const &n2) {
-            return is_strictlyMaximum(std::to_string(n1), n2.str);
-        }
-        friend bool operator > (bigint const &n1, long int n2) {
-            return is_strictlyMaximum(n1.str, std::to_string(n2));
-        }
-        friend bool operator > (long int n1, bigint const &n2) {
-            return is_strictlyMaximum(std::to_string(n1), n2.str);
-        }
-        friend bool operator > (bigint const &n1, long long int n2) {
-            return is_strictlyMaximum(n1.str, std::to_string(n2));
-        }
-        friend bool operator > (long long int n1, bigint const &n2) {
-            return is_strictlyMaximum(std::to_string(n1), n2.str);
-        }
 
         /* Operator {<} Overloadings, for different kind of 
         parameter for the programmer's convinience  */
 
         bool operator < (bigint const &n) {
             return is_strictlyMinimum(str, n.str);
-        }
-        friend bool operator < (bigint const &n1, int n2) {
-            return is_strictlyMinimum(n1.str, std::to_string(n2));
-        }
-        friend bool operator < (int n1, bigint const &n2) {
-            return is_strictlyMinimum(std::to_string(n1), n2.str);
-        }
-        friend bool operator < (bigint const &n1, long int n2) {
-            return is_strictlyMinimum(n1.str, std::to_string(n2));
-        }
-        friend bool operator < (long int n1, bigint const &n2) {
-            return is_strictlyMinimum(std::to_string(n1), n2.str);
-        }
-        friend bool operator < (bigint const &n1, long long int n2) {
-            return is_strictlyMinimum(n1.str, std::to_string(n2));
-        }
-        friend bool operator < (long long int n1, bigint const &n2) {
-            return is_strictlyMinimum(std::to_string(n1), n2.str);
         }
 
         /* Operator {>=} Overloadings, for different kind of 
@@ -429,48 +263,12 @@ class bigint {
         bool operator >= (bigint const &n) {
             return is_maximum(str, n.str);
         }
-        friend bool operator >= (bigint const &n1, int n2) {
-            return is_maximum(n1.str, std::to_string(n2));
-        }
-        friend bool operator >= (int n1, bigint const &n2) {
-            return is_maximum(std::to_string(n1), n2.str);
-        }
-        friend bool operator >= (bigint const &n1, long int n2) {
-            return is_maximum(n1.str, std::to_string(n2));
-        }
-        friend bool operator >= (long int n1, bigint const &n2) {
-            return is_maximum(std::to_string(n1), n2.str);
-        }
-        friend bool operator >= (bigint const &n1, long long int n2) {
-            return is_maximum(n1.str, std::to_string(n2));
-        }
-        friend bool operator >= (long long int n1, bigint const &n2) {
-            return is_maximum(std::to_string(n1), n2.str);
-        }
 
         /* Operator {<=} Overloadings, for different kind of 
         parameter for the programmer's convinience  */
 
         bool operator <= (bigint const &n) {
             return is_minimum(str, n.str);
-        }
-        friend bool operator <= (bigint const &n1, int n2) {
-            return is_minimum(n1.str, std::to_string(n2));
-        }
-        friend bool operator <= (int n1, bigint const &n2) {
-            return is_minimum(std::to_string(n1), n2.str);
-        }
-        friend bool operator <= (bigint const &n1, long int n2) {
-            return is_minimum(n1.str, std::to_string(n2));
-        }
-        friend bool operator <= (long int n1, bigint const &n2) {
-            return is_minimum(std::to_string(n1), n2.str);
-        }
-        friend bool operator <= (bigint const &n1, long long int n2) {
-            return is_minimum(n1.str, std::to_string(n2));
-        }
-        friend bool operator <= (long long int n1, bigint const &n2) {
-            return is_minimum(std::to_string(n1), n2.str);
         }
 
 
@@ -480,25 +278,6 @@ class bigint {
         bool operator ==(bigint const &n) {
             return (*this).str == n.str;
         }
-        friend bool operator == (bigint const &n1, int n2) {
-            return n1.str == std::to_string(n2);
-        }
-        friend bool operator == (int n1, bigint const &n2) {
-            return std::to_string(n1) == n2.str;
-        }
-        friend bool operator == (bigint const &n1, long int n2) {
-            return n1.str == std::to_string(n2);
-        }
-        friend bool operator == (long int n1, bigint const &n2) {
-            return std::to_string(n1) == n2.str;
-        }
-        friend bool operator == (bigint const &n1, long long int n2) {
-            return n1.str == std::to_string(n2);
-        }
-        friend bool operator == (long long int n1, bigint const &n2) {
-            return std::to_string(n1) == n2.str;
-        }
-
 
         /* Operator {!=} Overloadings, for different kind of 
         parameter for the programmer's convinience  */
@@ -506,26 +285,7 @@ class bigint {
         bool operator !=(bigint const &n) {
             return (*this).str != n.str;
         }
-        friend bool operator != (bigint const &n1, int n2) {
-            return n1.str != std::to_string(n2);
-        }
-        friend bool operator != (int n1, bigint const &n2) {
-            return std::to_string(n1) != n2.str;
-        }
-        friend bool operator != (bigint const &n1, long int n2) {
-            return n1.str != std::to_string(n2);
-        }
-        friend bool operator != (long int n1, bigint const &n2) {
-            return std::to_string(n1) != n2.str;
-        }
-        friend bool operator != (bigint const &n1, long long int n2) {
-            return n1.str != std::to_string(n2);
-        }
-        friend bool operator != (long long int n1, bigint const &n2) {
-            return std::to_string(n1) != n2.str;
-        }
 
-        //-----------------------------------------------------------
         //--------Function Definitions for External Uses-------------
         //-----------------------------------------------------------
 
