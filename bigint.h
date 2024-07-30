@@ -121,37 +121,6 @@ class bigint {
             return ans;
         }
 
-        friend bigint operator - (bigint const &n1, int n2) {
-            bigint ans;
-            ans.str = subtract(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator - (int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = subtract(std::to_string(n1), n2.str);
-            return ans;
-        }
-        friend bigint operator - (bigint const &n1, long int n2) {
-            bigint ans;
-            ans.str = subtract(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator - (long int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = subtract(std::to_string(n1), n2.str);
-            return ans;
-        }
-        friend bigint operator - (bigint const &n1, long long int n2) {
-            bigint ans;
-            ans.str = subtract(n1.str, std::to_string(n2));
-            return ans;
-        }
-        friend bigint operator - (long long int n1, bigint const &n2) {
-            bigint ans;
-            ans.str = subtract(std::to_string(n1), n2.str);
-            return ans;
-        }
-
         // Extra shortcut feature
 
         bigint& operator -= (bigint const n) {
